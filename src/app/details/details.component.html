@@ -1,0 +1,17 @@
+@if (item) {
+<div class="p-4">
+  <a (click)="goBack()" class="text-blue-500 cursor-pointer hover:underline">Back</a>
+  <h1 class="text-4xl font-bold text-center">{{ item.title }}</h1>
+  <img [src]="item.url" [srcset]="item.thumbnailUrl + ' 1x, ' + item.url + ' 2x'" alt="{{ item.title }}"
+    class="w-full h-auto mt-4" loading="lazy">
+</div>
+}
+@if (!item && !error) {
+<p class="text-center mt-4">Loading...</p>
+}
+@if (error) {
+<div class="bg-red-100 border border-red-400 text-red-700 mx-4 px-4 py-3 rounded relative mt-4" role="alert">
+  <strong class="font-bold">Error:</strong>
+  <span class="block sm:inline pl-1">There was a problem loading the data. Please try again later.</span>
+</div>
+}
